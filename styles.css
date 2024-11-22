@@ -3,51 +3,68 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1e1e2f, #313150);
-    color: white;
+    background: linear-gradient(135deg, #1e1e2f, #313150); /* Subtle dark gradient */
+    color: #f1f1f1;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Header */
 header {
-    background: #2b2b44;
+    background: #2e3b46; /* Darker tone for header */
     text-align: center;
-    padding: 50px 20px;
-    border-bottom: 4px solid #54e6d9;
+    padding: 40px 20px;
+    border-bottom: 4px solid #ff6f61; /* Accent color for visual contrast */
 }
 
 h1 {
     font-size: 2.5em;
     margin: 0;
-    color: #54e6d9;
+    color: #ff6f61; /* Bright accent color */
 }
 
 p {
     margin: 10px 0;
-    color: #ccccff;
+    color: #dddddd;
 }
 
 section {
     padding: 40px 20px;
     text-align: center;
+    opacity: 0; /* Initially invisible */
+    transform: translateY(50px); /* Slide from below */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.visible {
+    opacity: 1; /* Make it visible */
+    transform: translateY(0); /* Slide it to the top */
 }
 
 section h2 {
-    font-size: 2em;
+    font-size: 2.3em;
     margin-bottom: 20px;
-    color: #54e6d9;
+    color: #ff6f61;
 }
 
+/* Portfolio Section */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 30px;
     padding: 20px;
 }
 
 .portfolio-item {
-    background: #2b2b44;
+    background: #263238;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
 }
 
 .portfolio-item iframe {
@@ -70,7 +87,7 @@ section h2 {
     display: inline-block;
     margin: 10px;
     padding: 10px 20px;
-    background: #4c4cff;
+    background: #ff6f61; /* Tomato */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -79,12 +96,46 @@ section h2 {
 
 .portfolio-link:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 4px 20px #54e6d9;
+    box-shadow: 0px 4px 20px #ffb74d; /* Light Orange hover effect */
 }
 
-/* Contact Section */
+/* Software Skills Section - Remove Boxes */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+}
+
+.skill-item {
+    text-align: center;
+    background: none; /* Remove background */
+    padding: 0; /* Remove padding */
+    font-size: 1.5em; /* Larger font size for better readability */
+    color: #ffffff; /* White text color */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transitions */
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    color: #ff6f61; /* Accent color on hover */
+}
+
+/* Pipeline and Hobbies Section */
+.pipeline-skills-list, .hobbies-list {
+    margin-top: 30px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.pipeline-skills-list p, .hobbies-list p {
+    margin: 10px 0;
+}
+
+/* Contact Section - Light Blue Color for Email and Phone */
 .contact-link {
-    color: #54e6d9;
+    color: #54e6d9; /* Light Blue color for email and phone */
     text-decoration: none;
     font-weight: bold;
 }
@@ -93,11 +144,22 @@ section h2 {
     text-decoration: underline;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #2b2b44;
-    margin-top: 20px;
-    border-top: 4px solid #54e6d9;
+/* Back-to-Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    padding: 10px 15px;
+    background: #54e6d9;
+    color: #2b2b44;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: transform 0.3s;
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
 }
