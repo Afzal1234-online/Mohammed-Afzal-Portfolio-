@@ -1,30 +1,71 @@
+/* Importing Google Font for titles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Poppins font for titles */
+
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1e1e2f, #313150); /* Subtle dark gradient */
+    background-color: #1e2a47; /* Single dark blue color */
     color: #f1f1f1;
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Add this for Stars and Moon Effect */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/6/65/Starry_sky.jpg');
+    background-size: cover;
+    z-index: -1;
+    animation: move-stars 60s linear infinite;
+}
+
+/* Moon */
+.moon {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #ffffff 60%, #ffecb3 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    z-index: -1;
+    transition: transform 1s ease-in-out;
+}
+
+/* Stars Animation */
+@keyframes move-stars {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
 /* Header */
 header {
-    background: #2e3b46; /* Darker tone for header */
+    background: linear-gradient(135deg, #003566, #00509e); /* Darker night tones */
     text-align: center;
     padding: 40px 20px;
-    border-bottom: 4px solid #ff6f61; /* Accent color for visual contrast */
+    border-bottom-left-radius: 30px; /* Smooth curve */
+    border-bottom-right-radius: 30px;
 }
 
 h1 {
     font-size: 2.5em;
     margin: 0;
-    color: #ff6f61; /* Bright accent color */
+    color: #ffffff; /* White text for contrast */
 }
 
 p {
     margin: 10px 0;
-    color: #dddddd;
+    color: #d6e4f0; /* Softer white text */
 }
 
 section {
@@ -41,9 +82,10 @@ section.visible {
 }
 
 section h2 {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font to titles */
     font-size: 2.3em;
     margin-bottom: 20px;
-    color: #ff6f61;
+    color: #00b4d8; /* Bright cyan accent */
 }
 
 /* Portfolio Section */
@@ -55,10 +97,10 @@ section h2 {
 }
 
 .portfolio-item {
-    background: #263238;
+    background: #003566; /* Dark blue background */
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 15px; /* Smooth edges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -76,7 +118,7 @@ section h2 {
 
 .portfolio-item p {
     margin-top: 10px;
-    color: #ccccff;
+    color: #a9d6e5; /* Soft pastel text color */
 }
 
 .portfolio-links {
@@ -87,7 +129,7 @@ section h2 {
     display: inline-block;
     margin: 10px;
     padding: 10px 20px;
-    background: #ff6f61; /* Tomato */
+    background: #00b4d8; /* Cyan button */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -96,10 +138,10 @@ section h2 {
 
 .portfolio-link:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 4px 20px #ffb74d; /* Light Orange hover effect */
+    box-shadow: 0px 4px 20px rgba(0, 180, 216, 0.4); /* Cyan hover effect */
 }
 
-/* Software Skills Section - Remove Boxes */
+/* Software Skills Section */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -110,16 +152,18 @@ section h2 {
 
 .skill-item {
     text-align: center;
-    background: none; /* Remove background */
-    padding: 0; /* Remove padding */
-    font-size: 1.5em; /* Larger font size for better readability */
-    color: #ffffff; /* White text color */
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transitions */
+    background: #00509e; /* Darker blue for skills */
+    padding: 10px;
+    border-radius: 10px; /* Smooth edges */
+    font-size: 1.2em;
+    color: #caf0f8; /* Light cyan text */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .skill-item:hover {
     transform: translateY(-5px);
-    color: #ff6f61; /* Accent color on hover */
+    box-shadow: 0px 6px 15px rgba(0, 80, 158, 0.5); /* Hover effect */
 }
 
 /* Pipeline and Hobbies Section */
@@ -131,11 +175,23 @@ section h2 {
 
 .pipeline-skills-list p, .hobbies-list p {
     margin: 10px 0;
+    color: #a9d6e5;
 }
 
-/* Contact Section - Light Blue Color for Email and Phone */
+/* Change color for email and contact number */
+.email, .contact-number {
+    color: #f1f1f1; /* Light color for email and contact number */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Add hover effect for email and contact number */
+.email:hover, .contact-number:hover {
+    color: #00b4d8; /* Cyan color on hover */
+}
+
+/* Contact Section */
 .contact-link {
-    color: #54e6d9; /* Light Blue color for email and phone */
+    color: #00b4d8; /* Bright cyan color for email and phone */
     text-decoration: none;
     font-weight: bold;
 }
@@ -151,8 +207,8 @@ section h2 {
     right: 20px;
     display: none;
     padding: 10px 15px;
-    background: #54e6d9;
-    color: #2b2b44;
+    background: #00b4d8;
+    color: #ffffff;
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -162,4 +218,15 @@ section h2 {
 
 #back-to-top:hover {
     transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    background: #00509e; /* Darker footer color */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
